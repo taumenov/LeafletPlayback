@@ -12,7 +12,7 @@ L.Playback.MoveableMarker = L.Marker.extend({
         
         this.popupContent = '';
         this.feature = feature;
-		
+        
         if (marker_options.getPopup){
             this.popupContent = marker_options.getPopup(feature);            
         }
@@ -21,7 +21,7 @@ L.Playback.MoveableMarker = L.Marker.extend({
         {
             this.bindPopup(this.getPopupContent() + startLatLng.toString());
         }
-        	
+            
         if(options.labels)
         {
             if(this.bindLabel)
@@ -76,6 +76,7 @@ L.Playback.MoveableMarker = L.Marker.extend({
         transform += ' translate(' + -a.x + 'px, ' + -a.y + 'px)';
         transform += ' rotate(' + this.options.iconAngle + 'deg)';
         transform += ' translate(' + a.x + 'px, ' + a.y + 'px)';
+        i.style.transformOrigin = '50% 50% 0';
         i.style[L.DomUtil.TRANSFORM] += transform;
     },
     setIconAngle: function (iconAngle) {
